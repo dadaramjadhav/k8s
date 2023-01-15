@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-app
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: customer-app
+  template:
+    metadata:
+      labels:
+        app: customer-app
+    spec:
+      containers:
+        - name: customer-app
+          image: dadaramjadhav/custapp
+          ports:
+            - containerPort: 8080
